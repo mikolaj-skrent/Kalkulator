@@ -10,7 +10,7 @@ Trzeba dokończyć pisanie kodu kalkulatora.
     const display = document.querySelector('.calculator-screen');
     ```
 
-2. **Przyciski**: Referencja do elementów brzyciskó w kalkulatorze
+2. **Przyciski**: Referencja do elementów przycisku w kalkulatorze
     ```javascript
     const buttons = document.querySelectorAll(".calculator-keys>button");
     ```
@@ -25,10 +25,22 @@ Trzeba dokończyć pisanie kodu kalkulatora.
 4. **Działania**:
     - Dodawanie: Funkcja `add(a)` dodaje wartości przechowywane w `cache`.
     - Odejmowanie: Funkcja `subtract(a)` odejmuje wartości przechowywane w `cache`.
-    - Mnożenie i dzielenie: Funkcje te są do zaimplementowania.
+
+
+
+    - Mnożenie i dzielenie: Funkcje te są do zaimplementowania. ZROBIONE
+
+
+
     - Wyczyść wyświetlacz: Funkcja `clearDisplay()` czyści zawartość wyświetlacza.
     - Ustaw wartość wyświetlacza: Funkcja `setDisplayValue(value)` ustawia wartość na wyświetlaczu.
-    - Ustaw wartość wyświetlacza jako wynik działań: Funkcja do zaimplementowania
+
+
+
+    - Ustaw wartość wyświetlacza jako wynik działań: Funkcja do zaimplementowania  
+
+
+
 
 5. **Obsługa przycisków**: Każdy przycisk ma przypisane działanie na podstawie jego klasy CSS (operator, decimal, all-clear, equal-sign) i wartości.
 

@@ -2,24 +2,24 @@ const display = document.querySelector('.calculator-screen');
 
 const buttons = document.querySelectorAll(".calculator-keys>button");
 
-let buttonNum = [];
-let buttonOperator = [];
-let buttonFunction = [];
-let cache = [];
-let cacheValue =  "";
+let buttonNum = [];           // Tablica przechowująca przyciski liczb
+let buttonOperator = [];      // Tablica przechowująca przyciski operatorów
+let buttonFunction = [];      // Tablica przechowująca przyciski funkcyjne
+let cache = [];               // Tablica przechowująca wartości wprowadzone przez użytkownika
+let cacheValue =  "";         // Przechowuje bieżącą wartość wprowadzoną przez użytkownika
 buttons.forEach((button) => {
     if(button.classList.contains('operator')) {
         buttonOperator.push(button);
         const operator = button.value;
         switch(operator) {
-            case '+':
+            case '+': // dodawanie
                 button.addEventListener('click', (e) => {
                     if (cacheValue !== "") {
                         add(parseFloat(cacheValue));
                     }
                 });
                 break;
-            case '-':
+            case '-': // odejmowanie
                 button.addEventListener('click', (e) => {
                     if (cacheValue !== "") {
                         subtract(parseFloat(cacheValue));
@@ -29,11 +29,37 @@ buttons.forEach((button) => {
             case '*':
                 button.addEventListener('click', (e) => {
                     // mnożenie
+                    if (cacheValue !== "") {
+                        multiply(parseFloat(cacheValue));
+                    }
                 });
                 break;
             case '/':
                 button.addEventListener('click', (e) => {
                     // dzielenie
+                    if (cacheValue !== "") {
+                        split(parseFloat(cacheValue));
+                    }
+                });
+                    break;
+            case ',':
+                button.addEventListener('click', (e) => {
+                    // przecinek
+                    if (cacheValue !== "") {
+                        split(parseFloat(cacheValue));
+                    }
+
+                    
+                });
+                break;
+                case '=':
+                button.addEventListener('click', (e) => {
+                    // znak równości
+                    if (cacheValue !== "") {
+                        split(parseFloat(cacheValue));
+                    }
+
+                    
                 });
                 break;
         }
@@ -72,7 +98,7 @@ function clearDisplay() {
     display.innerText = "";
     cacheValue = "";
 }
-let test = true;
+let test = true;    // dodawanie
 function add(a) {
     cache.push(a);
     console.log(cache);
@@ -87,7 +113,7 @@ function add(a) {
         clearDisplay();
     }
 }
-function subtract(a) {
+function subtract(a) {  // odejmowanie
     cache.push(a);
     console.log(cache);
     if(cache.length >= 2) {
@@ -103,7 +129,53 @@ function subtract(a) {
 
 
 }
-function equal(){
+
+function multiply(a) { // mnozenie
+    cache.push(a);
+    console.log(cache);
+    if(cache.length >= 2) {
+        clearDisplay();
+        let sum = cache[0] * cache[1];
+        cache = [];
+        cache.push(sum);
+        setDisplayValue(cache);
+    }
+    else {
+        clearDisplay();
+    }
+
+
+
+}
+
+function split(a) {  // dzielenie
+    cache.push(a);
+    console.log(cache);
+    if(cache.length >= 2) {
+        clearDisplay();
+        let sum = cache[0] / cache[1];
+        cache = [];
+        cache.push(sum);
+        setDisplayValue(cache);
+    }
+    else {
+        clearDisplay();
+    }
+
+
+}
+
+
+
+function equal(a) {  // znak równości
+    cache.push(a);
+    console.log(cache);
+    if(cache.length >= 2) {
+        clearDisplay();
+
+
+
+    }
     // Sprawdź, jaki operator został wybrany jako ostatni i czy została podana liczba, wtedy wykonaj działanie ostatniego operatora.
     // Jeśli nie podano liczby, a kliknięto operator, wyświetl wartość z pamięci podręcznej (cache).
 }
